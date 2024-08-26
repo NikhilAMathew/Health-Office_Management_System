@@ -1,5 +1,5 @@
 # Health Office Management System
-![1](https://github.com/NikhilAMathew/Health-Office-Management-System/assets/117088447/14a30195-12d8-4ae4-81eb-56992faff73e)
+![1](assests/home.png)
 
 
 Health Office Management System is designed to replace the pen and paper approach. This 
@@ -43,13 +43,13 @@ manner, with the goal of reducing the time and resources currently required for 
 6. Web Server : Apache
 
 ## Login page
-![2](https://github.com/NikhilAMathew/Health-Office-Management-System/assets/117088447/25aebb7b-4bca-4bec-a9c0-df6d3404d320)
+![2]assests/login.png)
 
 ## User bookings
-![3](https://github.com/NikhilAMathew/Health-Office-Management-System/assets/117088447/5d1deeab-6443-4ab8-b4e2-f2e0e7e3691a)
+![3](assests/book_appointment.png)
 
-## User viewappointment
-![4](https://github.com/NikhilAMathew/Health-Office-Management-System/assets/117088447/e2566dd7-1b52-4873-9cc9-64fd89bfc879)
+## User apply jons
+![4](assests/apply_jobs.png)
 
-## Admin addjob
-![5](https://github.com/NikhilAMathew/Health-Office-Management-System/assets/117088447/78343592-5c47-43d4-a137-87506ef899b5)
+## Admin manage jobs
+![5](assests/manage_jobs.png)
