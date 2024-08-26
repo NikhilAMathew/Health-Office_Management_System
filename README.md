@@ -36,10 +36,11 @@ manner, with the goal of reducing the time and resources currently required for 
 
 # Tools used 🛠️
 1. Language : Python
-2. IDE : PyCharm
-3. Frontend : HTML, CSS, Bootstrap, JavaScript
-4. Backend : SQLite
-5. Web Server : Apache
+2. Framewwork : Django
+3. IDE : PyCharm
+4. Frontend : HTML, CSS, Bootstrap, JavaScript
+5. Backend : SQLite
+6. Web Server : Apache
 
 ## Login page
 ![2](https://github.com/NikhilAMathew/Health-Office-Management-System/assets/117088447/25aebb7b-4bca-4bec-a9c0-df6d3404d320)
