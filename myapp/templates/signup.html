@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+{% load crispy_forms_tags %}
+<script>
+function myFunction()
+{
+    var x = document.getElementById("accounts").value;
+    console.log(x);
+    var c = document.getElementsByClassName("form");
+    var i;
+    for (i = 0; i < c.length; i++) {
+        c[i].style.display = "none";
+    }
+    document.getElementById(x).style.display = "block";
+}
+</script>
+<div class="formdiv" style="background-color: white; padding: 30px; border-radius: 10px;">
+    <form class="form" method="post" enctype="multipart/form-data" id="Doctor" onsubmit="return confirm('Are you sure to submit?');">
+        <h2>Signup form</h2>
+        <hr>
+        {% csrf_token %}
+        {{ form|crispy }}
+        {{ UserForm|crispy }}
+        <input type="submit" class="btn btn-primary">
+    </form>
+</div>
+{% endblock %}

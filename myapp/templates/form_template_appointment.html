@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+form
+{% endblock %}
+{% load static %}
+{% block bodystyle %}
+<body style="background-image: url('{% static 'form1.png' %}'); background-repeat:no-repeat;
+  background-attachment: fixed;background-size:cover;">
+  {% endblock %}
+{% block body %}
+{% load crispy_forms_tags %}
+<div class="formdiv" style="background-color: white; padding: 30px; border-radius: 10px;" onsubmit="return confirm('Are you sure to submit?');">
+  <h4>Appointment Booking</h4><hr>
+    <form enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button TYPE="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}

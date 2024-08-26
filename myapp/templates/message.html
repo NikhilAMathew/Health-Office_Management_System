@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+form
+{% endblock %}
+{% block body %}
+{% load crispy_forms_tags %}
+<script>
+var no_record_check = {{ no_record_check }};  // no_record_check **must** be an integer
+if (no_record_check == 0) {
+    alert('No record found');
+}
+    alert({{message}});
+</script>
+<div class="container" style="margin:auto;width:30%;margin-top:25%;background-color:lightblue">
+<center><p class="text-warning" style="font-size:30px;">{{message}}</p></center>
+</div>
+{% endblock %}

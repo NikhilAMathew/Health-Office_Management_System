@@ -1,0 +1,40 @@
+{%extends 'base.html' %}
+{% load static %}
+{% block body %}
+<div class="container p-5">
+    <div class="col-6 mt-5 text-center content">
+        
+        <div class="item main-grid">
+            <h2>Signup as</h2>
+        </div>
+
+        <div class="item grid1">
+            <a href="{% url 'signup' 'CustomerForm' %}"><img src="{% static 'patient_signup.jpg' %}" alt="No image"
+                    width="100px"><br>
+                <h4 style="color:black">Patient</h4>
+            </a>
+        </div>
+
+        <div class="item grid2">
+            <a href="{% url 'signup' 'DoctorForm' %}"><img src="{% static 'doctor_signup.jpg' %}" alt="No image"
+                    width="100px"><br>
+                <h4 style="color:black">Doctor</h4>
+            </a>
+        </div>
+        <div class="item grid3">
+            <a href="{% url 'signup' 'HIForm' %}"><img src="{% static 'hi_signup.jpg' %}" alt="No image" width="100px"
+                    height=""><br>
+                <h4 style="color:black">Health Inspector</h4>
+            </a>
+        </div>
+        <div class="item grid4">
+            <a href="{% url 'signup' 'LabForm' %}"><img src="{% static 'lab_signup.jpg' %}" alt="No image"
+                    width="100px"><br>
+                <h4 style="color:black">Lab</h4>
+            </a>
+        </div>
+
+    </div>
+</div>
+</div>
+{% endblock %}

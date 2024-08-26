@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Noto Sans", sans-serif;;
+}
+.formdiv {
+    margin:auto;
+    width:50%;
+}
+
+.card-updates {
+    background-color: white;
+    width: 20%;
+    height: auto;
+    position: absolute;
+    top: 5em;
+    right: 2em;
+    padding: 1em 2em;
+    color: black;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.header {
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    bottom: 0;
+    margin-left: 5em;
+
+    a {
+        text-decoration: none;
+    }
+} 
+
+.header-btn {
+    background: none;
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 1em 2em;
+    border-radius: 50px;
+}
+
+.header-btn:hover {
+    background: white;
+    color: black;
+}
+
+.navbar {
+    width: 100%;
+    min-height: 3em;
+    background-color: white; 
+    border: none; 
+    border-radius:0; 
+    color: black;
+    padding: 0 1.5em;
+
+    a {
+        color: black;
+    }
+}
+
+.navbar-nav>li>.dropdown-menu {
+    margin-top: 5px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-radius: 10px;
+}
+
+.card-vacancy {
+    background-color: white;
+    width: 20%;
+    height: auto;
+    position: fixed;
+    top: 5em;
+    right: 2em;
+    padding: 1em 2em;
+    color: black;
+    border-radius: 10px;
+
+    details>summary {
+        cursor: pointer;
+        padding: 1em 0.5em;
+        border-radius: 10px;
+        font-weight: 600;
+    }
+
+    details>summary:hover {
+        background-color: #acacac;
+    }
+
+    details>p {
+        padding: 1em 0.5em;
+    }
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 65%;
+    margin: auto;
+
+
+    .item {
+        background-color: white;
+        padding: 10px;
+        border-radius: 10px;
+    }
+}
+
+.main-grid {
+    grid-column: 1 / span 4;
+}
+

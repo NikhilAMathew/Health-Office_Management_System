@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block body %}
+{% load static %}
+
+<div class="card-updates">
+    <h2 style="font-size: 18px;">News & Updates</h2><hr>
+    <marquee behavior="" direction="">{{available}} slots are available for today({{today}})</marquee>
+    {% for i in jobs %}
+    <marquee behavior="" direction="">{{i.vaccancies}} vacancies are available for {{i.title}}</marquee>
+    {% endfor %}
+
+</div>
+
+<div class="header" style="background-color:rgba(0,0,0,0);">
+
+    <h5 class="display-3 glow" style="font-family:Georgia, 'Times New Roman', Times, serif; font-size: 6em; color:white">
+        You’ll Love the Way, <br/>
+        We Care for You</h5>
+    <div>
+
+        {% if c %}
+        <div style="display: flex;
+        gap: 20px;
+        align-items: center;
+        margin: 2em 0;">
+            <h4 style="color: white;">Emergency?</h4>
+            <a class="header-btn" href="{% url 'appointment' %}" role="button">Request Appointment</a>
+        </div>
+
+        <br>
+        {% endif %}
+        {% if unknown %}
+        <div style="display: flex;
+        gap: 20px;
+        align-items: center;
+        margin: 2em 0;">
+        <h4 style="color: white;">Emergency?</h4>
+        <a class="header-btn" href="{% url 'appointment' %}" role="button">Request Appointment</a>
+    </div>
+        <p style="color: white; font-size: 12px;">Contact : healthoffice463@gmail.com</p>
+        {% endif %}
+    </div>
+
+
+
+    {% endblock %}

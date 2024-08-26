@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}
+Appointments
+{% endblock %}
+{% load static %}
+{% block bodystyle %}
+<body style="background-image: url('{% static 'form1.png' %}'); background-repeat:no-repeat;
+  background-attachment: fixed;background-size:cover;">
+  {% endblock %}
+{% block body %}
+<div class="container my-5"  style="background-color: white; padding: 30px; border-radius: 10px;">
+    {% if precs %}
+    <h3>Prescriptions</h3>
+    <table class="table table-sm">
+        
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Patient ID</th>
+                <th>Doctor</th>
+                <th>Date</th>
+                <th>Prescriptions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in precs %}
+            <tr>
+                <td>{{i.patient}}</td>
+                <td>{{i.patient.id}}</td>
+                <td>{{i.doctor}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.prescription}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+    {% else %}
+    <h4>No data found</h4>
+    {% endif %}
+</div>
+{% endblock %}

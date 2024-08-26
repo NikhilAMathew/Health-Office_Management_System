@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}Health office management{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'formdiv.css' %}">
+</head>
+{% block bodystyle %}
+<body style="background-image: url('{% static 'homepage1.png' %}'); background-repeat:no-repeat;
+  background-attachment: fixed;background-size:cover;">
+  {% endblock %}
+  
+    <nav class="navbar">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'index' %}" style="display: flex; gap: 10px;"><b style="font-size:30px;color:red">+</b>
+                    Health Care Center
+                </a>
+            </div>
+            <ul class="nav navbar-nav">
+                {% if c %}
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Patient
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        
+                        <li><a href="{% url 'appointment' %}">Appointment</a></li>
+                        <li><a href="{% url 'viewappointments' %}">View Appointment</a></li>
+                        
+                        <li><a href="{% url 'lab_booking' %}">Lab Booking</a></li>
+                        <li><a href="{% url 'lablist' %}">View Lab Bookings</a></li>
+                        <li><a href="{% url 'lab_reports_view' %}">Lab Reports and Results</a></li>
+                        <li><a href="{% url 'review' %}">Add reviews</a></li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% if d %}
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Doctor
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        
+                        <li><a href="{% url 'vaccine_date_form' %}">Vaccine date</a></li>
+                        <li><a href="{% url 'visited_patients' %}">Bookings</a></li>
+                        <li><a href="{% url 'lab_reports_view' %}">Lab Reports and Results</a></li>
+                   
+                        <li><a href="{% url 'prescriptions_to_lab' %}">Prescriptions to Lab</a></li>
+                    </ul>
+                </li>
+                {% endif %}
+                {% if h %}
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Health Inspector
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        
+                        <li><a href="{% url 'reviewlist' %}">Reviews</a></li>
+                        <li><a href="{% url 'recruit' %}">Recruit</a></li>
+                        <li><a href="{% url 'visited_patients' %}">Reports</a></li>
+                        <li><a href="{% url 'lab_reports_hi' %}">Lab bookings</a></li>
+                    </ul>
+                </li>
+                {% endif %}
+                {%  if l %}
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Lab
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'lab_report' %}">Send lab reports</a></li>
+                        <li><a href="{% url 'view_prescriptions' %}">View prescriptions</a></li>
+                        <li><a href="{% url 'lablist' %}">View Lab Bookings</a></li>
+                    </ul>
+                </li>
+                {% endif %}
+                {%  if c %}
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="{% url 'vacancy_apply' %}">Recruitment
+                        <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'vacancy_apply' %}">Apply for Vacancy</a></li>
+                    </ul>
+                </li>
+                {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right"  style="display: flex;align-items: center;">
+                {% if request.user.is_authenticated %}
+                <li><span></span>Welcome {{request.user.username}}</li>
+                <li><a href="{% url 'user_logout' %}"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'user_login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="{% url 'usertype' %}"><span class="glyphicon glyphicon-log-in"></span> Signup</a></li>
+                {% endif %}
+            </ul>
+    </nav>
+    {%if messages%}
+    {%for message in messages%}
+    <div class="alert alert-{{ message.tags }}">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{message}}
+    </div>
+    {%endfor%}
+    {%endif%}
+    {% block body %}
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+Appointments
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="col-3 mx-auto" style="background-color: white; padding: 30px; border-radius: 10px;">
+        {% if reviews %}
+        <h4>Reviews</h4>
+{% for i in reviews %}
+<table class="table table-striped">
+    <tr >
+        <td>
+            <dt>{{i.user}}: {{i.user.email}}</dt>
+            <dd style="margin-left: 50px;">{{i.comment}}</dd><br><br>
+        </td>
+        <td>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="email" id="" value="{{i.user.email}}">
+                <input type="hidden" name="id" id="" value="{{i.id}}">
+                <textarea name="reply" id="" cols="60" rows="5" style="margin-right: 50px;"></textarea>
+                <input type="submit" name="" id="" class="btn btn-primary">
+            </form>
+        </td>
+
+    </tr>
+</table>
+{% endfor %}
+{% else %}
+<p>No reviews</p>
+{%endif %}
+        
+    </div>
+</div>
+{% endblock %}

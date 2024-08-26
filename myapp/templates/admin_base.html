@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    {% load crispy_forms_tags %}
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}Admin panel{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'formdiv.css' %}">
+</head>
+{% block bodystyle %}
+
+<body style="background-image: url('{% static 'homepage1.png' %}'); background-repeat:no-repeat;
+      background-attachment: fixed;background-size:cover;">
+    {% endblock %}
+    <nav class="navbar">
+      <div class="navbar-header">
+          <a class="navbar-brand" href="{% url 'adminindex' %}" style="display: flex; gap: 10px;"><b style="font-size:30px;color:red">+</b>
+              Health Care Center
+          </a>
+      </div>
+            <ul class="nav navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'admin_patients' %}">Patients <span class="sr-only">(current)</span></a>
+                  </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'admin_doctors' %}">Doctors <span class="sr-only">(current)</span></a>
+                  </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'admin_hi' %}">Health inspector <span class="sr-only">(current)</span></a>
+                  </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'admin_lab' %}">Labs <span class="sr-only">(current)</span></a>
+                  </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'admin_limit' %}">Booking limit <span class="sr-only">(current)</span></a>
+                  </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'admin_job' %}">Add job<span class="sr-only">(current)</span></a>
+                  </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'admin_jobs' %}">View jobs<span class="sr-only">(current)</span></a>
+                  </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'admin_password' %}">Passwords<span class="sr-only">(current)</span></a>
+                  </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="display: flex;align-items: center;">
+                {% if request.user.is_authenticated %}
+                  <li><span></span>Welcome {{request.user.username}}</li>
+                  <li><a href="{% url 'user_logout' %}"><span class="glyphicon glyphicon-user"></span>Logout</a></li>
+
+                {% else %}
+                <li><a href="{% url 'user_login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="{% url 'usertype' %}"><span class="glyphicon glyphicon-log-in"></span> Signup</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    {%if messages%}
+    {%for message in messages%}
+    <div class="alert alert-{{ message.tags }}">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        {{message}}
+    </div>
+    {%endfor%}
+    {%endif%}
+    {% block body %}
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Appointments
+{% endblock %}
+{% block bodystyle %}
+<body style="background-image: url('{% static 'form1.png' %}'); background-repeat:no-repeat;
+  background-attachment: fixed;background-size:cover;">
+  {% endblock %}
+{% block body %}
+
+<div class="container my-5" style="background-color: white; border-radius: 10px; padding: 30px;">
+
+    {% if all %}
+    <h4>Lab bookings</h4>
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th>Lab</th>
+                <th>Test</th>
+                
+                <th>Date</th>
+                <th>Patient</th>
+                <th>Patient ID</th>
+            </tr>
+        </thead>
+       
+        <tbody>
+            {% for i in all %}
+            <tr>
+                <td>{{i.lab}}</td>
+                <td>{{i.test}}</td>
+                
+                <td>{{i.date}}</td>
+                <td>{{i.patient}}</td>
+                <td>{{i.patient.id}}</td>
+                {% if c %}
+                <td><a href="{% url 'editlabs' i.id %}"><button class="btn btn-success" onclick="window.alert('Are you sure to rescedule')">Reshedule</button></a></td>
+                <td><a href="{% url 'deletelabs' i.id %}"><button class="btn btn-danger" onclick="window.alert('Are you sure to delete')">Delete</button></a></td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+       
+    <h3>No data found</h3>
+
+{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% block title %}
+Reports
+{% endblock %}
+{% block body %}
+<br>
+<br>
+
+
+<div class="container my-5" style="background-color: white; border-radius: 10px; padding: 30px;">
+    {% if appointments %}
+    <h3>Booking List</h3><hr>
+    {% if f %}
+    <form method="POST">
+        {% csrf_token %}
+        <label for="start">Start</label>
+        <input class="form-control" type="date" name="start" id="start">
+    <br>
+        <label for="end">End</label>
+        <input class="form-control" type="date" name="end" id="end"><br>
+    
+        <button class="btn btn-primary">Find</button><br>
+    </form>
+
+{% endif %}
+</div><br><br>
+
+
+<table class="table" >
+    <tr style="font-weight:bold">
+        <td>Doctor</td>
+        <td>Patient ID</td>
+        <td>Patient</td>
+        <td>Symptoms</td>
+        <td>Date</td>
+    </tr>
+    {% for i in appointments %}
+    <tr>
+        <td>{{i.doctor}}</td>
+        <td>{{i.patient.id}}</td>
+        <td>{{i.patient}}</td>
+        <td>{{i.symptoms}}</td>
+        <td>{{i.date}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% else %}
+
+<h4>No patients found</h4>
+{% endif %}
+
+{% endblock %}

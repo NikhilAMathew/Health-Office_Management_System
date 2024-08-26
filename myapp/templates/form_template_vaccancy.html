@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+Apply Vacancy
+{% endblock %}
+{% load static %}
+{% block bodystyle %}
+
+<body style="background-image: url('{% static 'form1.png' %}'); background-repeat:no-repeat;
+  background-attachment: fixed;background-size:cover;">
+  {% endblock %}
+  {% block body %}
+  {% load crispy_forms_tags %}
+    <div class="col-sm-3"></div>
+    <div class="formdiv col-sm-6" style="background-color: white; padding: 30px; border-radius: 10px; ">
+      <h4>Apply for jobs</h4>
+      <hr>
+      <form enctype="multipart/form-data" method="post" onsubmit="return confirm('Are you sure to submit?');">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button TYPE="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <p id="demo"></p>
+    </div>
+    
+    <div class="card-vacancy">
+      <h4 style="text-align: center;">Available Jobs</h4><hr>
+        {% for i in jobs %}
+        <details>
+          <summary> {{i.title}} </summary>
+          <p> {{i.description}} </p>
+        </details>
+        {% endfor %}
+    </div>
+
+  {% endblock %}

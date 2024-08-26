@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Reports
+{% endblock %}
+{% block bodystyle %}
+<body style="background-image: url('{% static 'homepage1.png' %}'); background-repeat:no-repeat;
+  background-attachment: fixed;background-size:cover;">
+  {% endblock %}
+{% block body %}
+<div class="container mt-5" style="background-color: white; padding: 30px; border-radius: 10px;">
+    {% if applicants %}
+    <h3>Recruit</h3>
+    <table class="table text-center">
+        <tr>
+            <th></th>
+            <th style="text-align: center;">Name</th>
+            <th style="text-align: center;">Email</th>
+            <th style="text-align: center;">Mobile</th>
+            <th style="text-align: center;">BioData</th>
+            <th style="text-align: center;">Preference</th>
+            
+        </tr>
+        {% for i in applicants %}
+        <tr style="text-align: center;">
+            <td>{{i.id}}</td>
+            <td>{{i.first_name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.mobile}}</td>
+            <td><a href="{{i.bio_data.url}}" target="_blank">Click here</a></td>
+            <td>{{i.preference}}</td>
+            <td><a href="{% url 'select' i.id %}">Appoint</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <h4>No data found</h4>
+    {% endif %}
+</div>
+{% endblock %}

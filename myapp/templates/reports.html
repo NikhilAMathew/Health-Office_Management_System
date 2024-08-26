@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Appointments
+{% endblock %}
+{% block bodystyle %}
+
+<body style="background-image: url('{% static 'form1.png' %}'); background-repeat:no-repeat;
+  background-attachment: fixed;background-size:cover;">
+    {% endblock %}
+
+    {% block body %}
+    <div class="container my-5" style="background-color: white; border-radius: 10px; padding: 30px;">
+        {% if reports %}
+        <h4>Lab reports</h4>
+        <hr>
+        <table class="table table-sm" style="background-color: white;">
+            <thead>
+                <tr>
+                    <th>Doctor</th>
+                    <th>Patient ID</th>
+                    <th>Patient</th>
+                    <th>Lab</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in reports %}
+                <tr>
+                    <td>{{i.doctor}}</td>
+                    <td>{{i.patient_id}}</td>
+                    <td>{{i.patient}}</td>
+                    <td>{{i.lab}}</td>
+                    <td>{{i.date}}</td>
+                    <td>
+                        <a href="{{ i.report.url }}" target="_blank">View Report</a><br>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+        {% else %}
+        <h4>No reports found</h4>
+        {% endif %}
+    </div>
+
+    {% endblock %}
