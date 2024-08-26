@@ -43,7 +43,7 @@ manner, with the goal of reducing the time and resources currently required for 
 6. Web Server : Apache
 
 ## Login page
-![2]assests/login.png)
+![1](assests/login.png)
 
 ## User bookings
 ![3](assests/book_appointment.png)
